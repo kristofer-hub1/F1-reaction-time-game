@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>F1 Reaktsioonikiirus Pro</title>
+  
+  <!-- Fonti ja Ikoonide lingid -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- CSS Faili Ühendamine -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Animeeritud neoon-taust -->
+  <div class="glow-sphere sphere-1"></div>
+  <div class="glow-sphere sphere-2"></div>
+  <div class="circuit-grid"></div>
+
+  <!-- Mängu Peakonteiner -->
+  <main class="game-card">
+
+    <!-- Päise sektsioon ja stardifoorid -->
+    <header class="header-section">
+      <div class="title-bar">
+        <div class="logo-f1">F1</div>
+        <h1 class="main-title">REAKTSIONIKIIRUS</h1>
+      </div>
+
+      <!-- F1 5-postiga Stardifoor -->
+      <div class="gantry-frame">
+        <!-- Post 1 -->
+        <div class="gantry-post">
+          <div class="light" id="p1-1"></div>
+          <div class="light" id="p1-2"></div>
+        </div>
+        <!-- Post 2 -->
+        <div class="gantry-post">
+          <div class="light" id="p2-1"></div>
+          <div class="light" id="p2-2"></div>
+        </div>
+        <!-- Post 3 -->
+        <div class="gantry-post">
+          <div class="light" id="p3-1"></div>
+          <div class="light" id="p3-2"></div>
+        </div>
+        <!-- Post 4 -->
+        <div class="gantry-post">
+          <div class="light" id="p4-1"></div>
+          <div class="light" id="p4-2"></div>
+        </div>
+        <!-- Post 5 -->
+        <div class="gantry-post">
+          <div class="light" id="p5-1"></div>
+          <div class="light" id="p5-2"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mängu info paneelid -->
+    <section class="info-section">
+      <div class="info-card">
+        <span class="info-label">Katse</span>
+        <span class="info-value text-cyan" id="attemptDisplay">1 / 3</span>
+      </div>
+      <div class="info-card">
+        <span class="info-label">Viimane Aeg</span>
+        <span class="info-value text-yellow" id="lastTimeDisplay">--- ms</span>
+      </div>
+      <div class="info-card">
+        <span class="info-label">Isiklik Rekord</span>
+        <span class="info-value text-green" id="pbDisplay">--- ms</span>
+      </div>
+    </section>
+
+    <!-- Keskne reageerimise/tegevuse ala -->
+    <section class="action-section">
+      <p class="status-msg" id="statusMessage">Vajuta nuppu või tühikuklahvi!</p>
+      
+      <button class="main-btn" id="mainBtn">
+        <i class="fas fa-play"></i> ALUSTA STARDIPROTSESSI
+      </button>
+
+      <div class="key-hint">
+        Reageerimiseks võid kasutada klahvi: <span class="key-badge">SPACE</span>
+      </div>
+    </section>
+
+    <!-- Katsete ajalugu -->
+    <section class="history-section">
+      <div class="history-card">
+        <span class="history-label">1. Katse</span>
+        <span class="history-val" id="attempt1Text">--</span>
+      </div>
+      <div class="history-card">
+        <span class="history-label">2. Katse</span>
+        <span class="history-val" id="attempt2Text">--</span>
+      </div>
+      <div class="history-card">
+        <span class="history-label">3. Katse</span>
+        <span class="history-val" id="attempt3Text">--</span>
+      </div>
+    </section>
+
+    <!-- Jalus ja helinupp -->
+    <footer class="footer-bar">
+      <button class="control-btn" id="soundToggleBtn">
+        <i class="fas fa-volume-up" id="soundIcon"></i>
+        <span>Heli</span>
+      </button>
+      <div class="footer-text">F1 Speed Challenge &bull; Turniirirežiim</div>
+    </footer>
+
+  </main>
+
+  <!-- Lõpptulemuse Modal (Aken) -->
+  <div class="modal-overlay hidden" id="resultsModal">
+    <div class="modal-card">
+      <div class="modal-icon">
+        <i class="fas fa-trophy"></i>
+      </div>
+      <h2 class="modal-title">TURNIIR LÕPPENUD!</h2>
+      <div class="modal-rating" id="driverRating">MAX VERSTAPPEN TASE</div>
+
+      <div class="modal-stats">
+        <div class="stat-row">
+          <span>Parim katse:</span>
+          <span class="text-green font-f1" id="modalBest">0 ms</span>
+        </div>
+        <div class="stat-row">
+          <span>Keskmine aeg:</span>
+          <span class="text-yellow font-f1" id="modalAvg">0 ms</span>
+        </div>
+      </div>
+
+      <button class="main-btn btn-modal" id="modalResetBtn">
+        <i class="fas fa-redo"></i> ALUSTA UUT TURNIIRI
+      </button>
+    </div>
+  </div>
+
+  <!-- JavaScript Faili Ühendamine -->
+  <script src="script.js"></script>
+</body>
+</html>
