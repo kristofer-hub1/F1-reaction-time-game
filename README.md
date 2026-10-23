@@ -1,45 +1,55 @@
-# 🏎️ F1 Reaction Time Game
+# F1 Telemetry // Reaktsioonikiirus & Taktikaline Mälu
 
-An interactive, Formula 1-themed reaction speed testing web application built with modern HTML5, CSS3, and JavaScript (Vanilla JS). Test your reflexes against the iconic 5-light F1 starting gantry and see if you have what it takes to react like a real Grand Prix driver!
+See projekt on veebipõhine küberpunk ja Vormel 1 stiilis minimängude keskkond, mis on loodud treenima ja testima kasutaja kognitiivseid võimeid – spetsiifiliselt reaktsiooniaega ja lühiajalist visuaalset mälu. Mäng töötab otse veebibrauseris ega vaja eraldi paigaldamist.
 
----
+## 🎮 Mängurežiimid ja mehaanika
 
-## 🌟 Key Features
+### 1. F1 Reaktsioonikiirus
+Klassikaline Vormel 1 starditulede simulatsioon.
+* **Kuidas mängida:** Oota, kuni viis punast stardituld süttivad. Kui tuled kustuvad, reageeri nii kiiresti kui võimalik, klõpsates hiirega ekraanil või vajutades tühikuklahvi (`SPACE`).
+* **Funktsionaalsus:**
+  * Jälgib ja kuvab kolme järjestikuse katse aegu.
+  * Salvestab ja uuendab isiklikku rekordit (PB).
+  * Arvutab turniiri lõpus keskmise reaktsiooniaja ja annab vastava hinnangu (nt "Max Verstappen tase").
+  * Sisseehitatud heliefektid stardiprotseduuri jaoks (sisse/välja lülitatavad).
 
-* **Authentic F1 5-Gantry Lights:** 5 red posts light up sequentially every second, followed by a randomized delay (1.5s – 4.5s) before turning green (**"LIGHTS OUT & AWAY WE GO!"**).
-* **3-Round Tournament System:** Players complete 3 attempts per session. The game calculates your average reaction time and highlights your overall best round.
-* **Personal Best (PB) Storage:** Automatically saves your fastest time to browser local storage (`localStorage`).
-* **Keyboard & Touch Support:** React using either screen clicks or the **Spacebar**.
-* **False Start Detection:** Penalty system with visual shake animations and warning sounds if you attempt to react before the lights turn green.
-* **Dynamic Web Audio API Sound Effects:** Realistic synthesized start beeps, go signals, jump-start alerts, and victory sounds.
-* **Driver Ranking System:** Evaluates your performance at the end of 3 rounds and assigns an official rank (e.g., *Max Verstappen Level*, *F1 Driver*, *F2 Pro*, etc.).
-* **Responsive Dark Neon Aesthetic:** Deep night-circuit grid with vibrant neon gradients and modern glassmorphism UI elements.
+### 2. Taktikaline Mälu (Chimp Test)
+Klassikalise "ahvitesti" edasiarendus taktikalises F1 HUD stiilis.
+* **Kuidas mängida:** Ekraanile ilmuvad numbrid. Niipea kui vajutad numbrit "1", lähevad ülejäänud numbrid peitu (muutuvad valgeteks kastideks). Sinu ülesanne on klõpsata peidetud kastidel õiges numbrilises järjekorras (2, 3, 4 jne).
+* **Funktsionaalsus:**
+  * Progresseeruv raskusaste (Tasemed 1–20), kus iga tasemega lisandub uusi numbreid.
+  * 3 elu (eksimuse korral kaotad elu, aga saad taset uuesti proovida).
+  * Dünaamiliselt genereeritud 8x5 ruudustik, kus numbrite asukohad on iga kord unikaalsed.
 
----
+## 🛠️ Kasutatud tehnoloogiad
 
-## 🎮 How to Play
+Projekt on ehitatud kasutades standardseid veebitehnoloogiaid (ilma väliste raamistiketa):
+* **HTML5:** Lehtede struktuur, semantilised märgendid ja HUD-elemendid.
+* **CSS3:** 
+  * Küberpunk/Neoon visuaalne stiil (CSS muutujad, `box-shadow` kumafektid).
+  * Kohanduv disain (`Flexbox` ja `CSS Grid` mälutesti ruudustiku jaoks).
+  * `FontAwesome` ikoonid ja Google Fonts (`Orbitron`, `Share Tech Mono`).
+* **JavaScript (Vanilla):** 
+  * Sündmuste kuulajad (Event Listeners) hiire ja klaviatuuri sisendite jaoks.
+  * Mänguloogika, taimerid (`setTimeout`), tasemete genereerimine ja DOM-i dünaamiline muutmine.
 
-1. Click **"ALUSTA STARDIPROTSESSI"** (or press `Spacebar`) to start the light sequence.
-2. Watch the 5 red posts light up one by one.
-3. As soon as the red lights go out and turn **GREEN**, hit **`Spacebar`** or **click the button** as fast as you can!
-4. **Warning:** Reacting too early triggers a **False Start**!
-5. Complete all 3 attempts to receive your overall driver evaluation.
+## 📁 Failide struktuur
 
----
+Projekt on jaotatud kaheks peamiseks mooduliks, et hoida kood puhas ja arusaadav:
 
-## 🛠️ Built With
+* **Reaktsioonimäng (Põhimenüü)**
+  * `index.html` – F1 reaktsioonimängu vaade ja stardifoorid.
+  * `style.css` – Peamised stiilid ja animatsioonid.
+  * `script.js` – Reaktsiooniaja mõõtmine ja katsete loogika.
+* **Taktikaline Mälu (Chimp Test)**
+  * `chimp.html` – Mälutesti vaade ja HUD raamistik.
+  * `chimp.css` – Mälutesti spetsiifilised ruudustiku ja numbrite stiilid.
+  * `chimp.js` – Tasemete genereerimine, elude süsteem ja peitmisloogika.
 
-* **HTML5** – Structured semantic layout and modal elements.
-* **CSS3** – Custom flexbox/grid layouts, keyframe animations, glassmorphism design, and custom glow effects.
-* **Vanilla JavaScript (ES6+)** – Asynchronous light sequence timers, reaction speed math, conditional false-start logic, and local storage state management.
-* **Web Audio API** – Pure browser-synthesized audio tones without relying on external sound assets.
-* **Google Fonts** – *Orbitron* & *Rajdhani* for authentic racing telemetry typography.
-* **Font Awesome** – UI icons.
+## 🚀 Käivitamine ja kasutamine
 
----
-
-## 🚀 Local Installation & Setup
-
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/kristofer-hub1/F1-reaction-time-game.git](https://github.com/kristofer-hub1/F1-reaction-time-game.git)
+1. Laadi repositoorium ZIP-failina alla või klooni Gitiga:
+   `git clone https://github.com/sinu-kasutajanimi/F1-reaction-time-game.git` *(asenda link enda GitHubi repoga)*
+2. Ava projekti kaust.
+3. Topeltklõpsa failil `index.html`, et avada see oma eelistatud veebibrauseris.
+4. Navigeeri kahe mängu vahel kasutades ekraanil olevaid nuppe.
