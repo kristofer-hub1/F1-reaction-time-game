@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>F1 Telemetry // Taktikaline Mälu</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="chimp.css">
+</head>
+<body>
+
+  <main class="hud-frame">
+    <!-- Päis -->
+    <header class="hud-header">
+      <div class="hud-brand">
+        <span class="hud-f1">F1</span>
+        <div class="hud-title-wrap">
+          <h1 class="hud-title">TAKTIKALINE MÄLU</h1>
+          <span class="hud-sub">CHIMP TEST v1.0</span>
+        </div>
+      </div>
+      <div class="score-board">
+        <div class="score-item">TASE: <span id="levelDisplay" class="text-cyan">1</span></div>
+        <div class="score-item">ELUD: <span id="livesDisplay" class="text-red">3</span></div>
+      </div>
+    </header>
+
+    <!-- Mänguala -->
+    <section class="arena-container">
+      <div id="startScreen" class="screen active">
+        <h2 class="neon-text">JÄTA NUMBRID MEELDE</h2>
+        <p>Klõpsa numbritele õiges järjekorras (1, 2, 3...).<br>Kui vajutad numbrit "1", lähevad teised numbrid peitu.</p>
+        <button id="startBtn" class="hud-btn-action">ALUSTA TESTI</button>
+      </div>
+
+      <div id="gameScreen" class="screen">
+        <div id="gridContainer" class="chimp-grid"></div>
+      </div>
+
+      <div id="gameOverScreen" class="screen">
+        <h2 class="text-red">SÜSTEEMI VIGA</h2>
+        <p>Sinu tulemus (Tase): <span id="finalScore" class="text-cyan"></span></p>
+        <button id="restartBtn" class="hud-btn-action">TAASKÄIVITA SÜSTEEM</button>
+      </div>
+    </section>
+
+    <!-- Tagasi nupp eelmisesse mängu -->
+    <footer class="hud-footer">
+      <a href="index.html" class="back-link">&lt;&lt; TAGASI REAKTSIOONIMÄNGU</a>
+    </footer>
+  </main>
+
+  <script src="chimp.js"></script>
+</body>
+</html>
